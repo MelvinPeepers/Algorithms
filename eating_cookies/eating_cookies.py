@@ -88,7 +88,11 @@ def eating_cookies(n, cache=None):
         return eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
 
 
-# print(eating_cookies(10))
+print(eating_cookies(0))
+print(eating_cookies(1))
+print(eating_cookies(2))
+print(eating_cookies(5))
+print(eating_cookies(10))
 
 
 if __name__ == "__main__":
