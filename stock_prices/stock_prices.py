@@ -4,8 +4,17 @@ import argparse
 
 
 def find_max_profit(prices):
+    length = len(prices)
     prices.sort()
+    largest_elm = prices[length-1]
+    second_small = prices[1]
+    print(largest_elm)
+    print(second_small)
+    return largest_elm - second_small
 
+
+prices = [1050, 270, 1540, 3800, 2]
+print(find_max_profit(prices))
 
 if __name__ == '__main__':
     # This is just some code to accept inputs from the command line
