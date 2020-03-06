@@ -77,15 +77,32 @@ import sys
 # 2, 3
 
 
-def eating_cookies(n, cache=None):
-    if n < 0:
-        return 0
+# def eating_cookies(n, cache=None):
+#     if n < 0:
+#         return 0
 
-    elif n < 2:
+#     elif n < 2:
+#         return 1
+
+#     else:
+#         return eating_cookies(n-3) + eating_cookies(n-2) + eating_cookies(n-1)
+
+def eating_cookies(n, cache=None):
+    # base case, he cannot eat anymore cookies
+    if n == 0:
         return 1
 
-    else:
-        return eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
+    total_ways = 0
+    if n >= 3:
+        # eat all 3 cookies
+        total_ways += eating_cookies(n-3)
+    if n >= 2:
+        # can eat 2 cookies
+        total_ways += eating_cookies(n-2)
+    if n >= 1:
+        # can eat 1 cookie
+        total_ways += eating_cookies(n-1)
+    return total_ways
 
 
 print(eating_cookies(0))
@@ -93,6 +110,7 @@ print(eating_cookies(1))
 print(eating_cookies(2))
 print(eating_cookies(5))
 print(eating_cookies(10))
+print(eating_cookies(20))
 
 
 if __name__ == "__main__":
